@@ -29,11 +29,6 @@ header('Content-type: application/json');
     };
 
 
-    // $quadrato1 = new Quad(5);
-    // $quadrato1 -> $lato = 5;
-    // $area1 = $quadrato1 -> getArea();
-    // echo $area1;
-
     $x1 = $_GET['x1'];
     $y1 = $_GET['y1'];
     $z1 = $_GET['z1'];
@@ -52,22 +47,27 @@ header('Content-type: application/json');
 
     $para1 = new Parallelepipedo($x1,$y1,$z1);
     $area1 = $para1 -> getArea();
+    $volume1 = $para1 -> getVol();
 
     $para2 = new Parallelepipedo($x2,$y2,$z2);
     $area2 = $para2 -> getArea();
+    $volume2 = $para2 -> getVol();
+
 
     $para3 = new Parallelepipedo($x3,$y3,$z3);
     $area3 = $para3 -> getArea();
+    $volume3 = $para3 -> getVol();
 
-    $aree = [];
+    $dati = array(
+      'aree' => [],
+      'volumi' => []
+    )
 
-    array_push($aree,$area1,$area2,$area3);
+    array_push($dati['aree'],$area1,$area2,$area3);
+    array_push($dati['volumi'],$volume1,$volume2,$volume3);
 
 
-
-    echo json_encode($aree);
-
-
+    echo json_encode($dati);
 
 
     // $arrPara = [
