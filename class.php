@@ -38,9 +38,34 @@ header('Content-type: application/json');
     $y1 = $_GET['y1'];
     $z1 = $_GET['z1'];
 
-    $para1 = new Parallelepipedo(x1,y1,z1);
 
-    echo json_encode(???????);
+    $x2 = $_GET['x2'];
+    $y2 = $_GET['y2'];
+    $z2 = $_GET['z2'];
+
+
+    $x3 = $_GET['x3'];
+    $y3 = $_GET['y3'];
+    $z3 = $_GET['z3'];
+
+
+
+    $para1 = new Parallelepipedo($x1,$y1,$z1);
+    $area1 = $para1 -> getArea();
+
+    $para2 = new Parallelepipedo($x2,$y2,$z2);
+    $area2 = $para2 -> getArea();
+
+    $para3 = new Parallelepipedo($x3,$y3,$z3);
+    $area3 = $para3 -> getArea();
+
+    $aree = [];
+
+    array_push($aree,$area1,$area2,$area3);
+
+
+
+    echo json_encode($aree);
 
 
 
